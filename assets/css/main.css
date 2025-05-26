@@ -11,3 +11,37 @@
 body {
   font-family: Arial, sans-serif;
 }
+/* Dubai Font Family */
+@font-face {
+  font-family: 'Dubai';
+  src: url('~/assets/Fonts/Dubai-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dubai';
+  src: url('~/assets/Fonts/Dubai-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dubai';
+  src: url('~/assets/Fonts/Dubai-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dubai';
+  src: url('~/assets/Fonts/Dubai-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Font Weight Classes */
+.font-light { font-weight: 300; }
+.font-regular { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-bold { font-weight: 700; }
