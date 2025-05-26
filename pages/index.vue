@@ -1,6 +1,6 @@
 <template>
    <NuxtLayout name="website">
-      Holla Joj
+      Holla Joj {{ useRuntimeConfig().public.API_URL }}
       <br>
       <div>
          <h1 class="font-bold">عنوان رئيسي</h1>

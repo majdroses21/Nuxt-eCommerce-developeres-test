@@ -13,5 +13,11 @@ export default defineNuxtConfig({
   ],
   plugins: [
     '~/plugins/bootstrap.client.js'
-  ]
+  ],
+  runtimeConfig: {
+    public: {
+      API_URL: process.env.API_URL,
+      STORAGE_URL: process.env.STORAGE_URL,
+    },
+  },
 })
