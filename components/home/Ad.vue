@@ -1,7 +1,7 @@
 <template>
-    <div class="ad-container position-relative">
-        <img src="../../assets/Images/Jewelry.jpg" alt="إعلان مجوهرات">
-        <div class="shop-button">
+    <div class="ad-container position-relative" :style="{ height: customHeight }">
+        <img :src="imageSource" alt="ad">
+        <div class="shop-button" v-if="showButton">
             <button>
                 <div class="button-content">
                     <img src="../../assets/Images/Icons/Bottun White.png" alt="">
@@ -11,6 +11,26 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    name: 'AdComponent',
+    props: {
+        showButton: {
+            type: Boolean,
+            default: true
+        },
+        imageSource: {
+            type: String,
+            default: '_nuxt/assets/Images/Jewelry.jpg'
+        },
+        customHeight: {
+            type: String,
+            default: 'auto'
+        }
+    }
+}
+</script>
 
 <style scoped>
 /* Ad Styles */
@@ -75,8 +95,8 @@
         left: 40%;
         font-size: x-small;
     }
-
 }
+
 /* Tablets */
 @media (min-width: 768px) and (max-width: 900px) {
     .shop-button {
