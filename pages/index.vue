@@ -32,14 +32,14 @@
 <script setup>
 // Products images
 import { HomeSignupAd } from '#components';
-import img1 from '@/assets/images/1.jpg';
-import img2 from '@/assets/images/2.jpg';
-import img3 from '@/assets/images/3.jpg';
-import img4 from '@/assets/images/4.jpg';
-import imgD from '@/assets/images/D.png';
-import imgF from '@/assets/images/F.png';
-import imgG from '@/assets/images/G.png';
-import imgH from '@/assets/images/H.png';
+import img1 from '../assets/Images/1.jpg';
+import img2 from '../assets/Images/2.jpg';
+import img3 from '../assets/Images/3.jpg';
+import img4 from '../assets/Images/4.jpg';
+import imgD from '../assets/Images/D.png';
+import imgF from '../assets/Images/F.png';
+import imgG from '../assets/Images/G.png';
+import imgH from '../assets/Images/H.png';
 // Products Data
 const specialOffers = ref([
    {
