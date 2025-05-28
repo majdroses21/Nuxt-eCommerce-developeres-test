@@ -32,7 +32,7 @@
       </div>
     </div>
     
-    <NuxtLink to="/" class="product-info p-3 text-center">
+    <NuxtLink :to="'/products/' + id" class="product-info p-3 text-center">
       <span class="product-title mb-2 text-dark fw-normal">{{ title }}</span>
       <div class="product-pricing d-flex align-items-center justify-content-center gap-2">
         <span class="current-price fw-bold text-dark fs-5">{{ currency }} </span>
@@ -44,7 +44,6 @@
 </template>
 
 <script setup>
-import { NuxtLink } from '#components'
 
 const props = defineProps({
   image: {
@@ -52,6 +51,10 @@ const props = defineProps({
     required: true
   },
   title: {
+    type: Number,
+    required: true
+  },
+  id: {
     type: String,
     required: true
   },

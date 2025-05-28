@@ -55,6 +55,7 @@
             <ProductCard 
               :image="product.image"
               :title="product.title"
+              :id="product.id"
               :new-price="product.price"
               :description="product.description"
               :rating="product.rating"
