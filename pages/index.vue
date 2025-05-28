@@ -31,7 +31,6 @@
 </template>
 <script setup>
 // Products images
-import { HomeSignupAd } from '#components';
 import img1 from '../assets/Images/1.jpg';
 import img2 from '../assets/Images/2.jpg';
 import img3 from '../assets/Images/3.jpg';

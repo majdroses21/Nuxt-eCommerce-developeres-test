@@ -60,9 +60,9 @@
                         </div>
                         <!-- Mobile Icons -->
                         <div class="mobile-icons mt-3">
-                            <NuxtLink to="/login" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/Login.png" alt=""> </NuxtLink>
-                            <NuxtLink to="/cart" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/Cart.png" alt=""> </NuxtLink>
-                            <NuxtLink to="/fav" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/heart_11613265.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/Login.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/Cart.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="me-3 icons-nav"> <img src="../../assets/Images/Icons/heart_11613265.png" alt=""> </NuxtLink>
                         </div>
                     </div>
                 </div>
@@ -93,9 +93,9 @@
                                 <input type="search" class="form-search bg-light" placeholder="Search" id="search-input">
                                 <img src="../../assets/Images/Icons/Search Mouve.png"/>
                             </div>
-                            <NuxtLink to="/login" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/Login.png" alt=""> </NuxtLink>
-                            <NuxtLink to="/cart" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/Cart.png" alt=""> </NuxtLink>
-                            <NuxtLink to="/fav" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/heart_11613265.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/Login.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/Cart.png" alt=""> </NuxtLink>
+                            <NuxtLink to="/" class="ms-1 me-2 icons-nav"> <img src="../../assets/Images/Icons/heart_11613265.png" alt=""> </NuxtLink>
                         </div>
                     </div>
                 </div>
