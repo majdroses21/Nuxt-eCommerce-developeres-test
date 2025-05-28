@@ -1,5 +1,5 @@
 <template>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div v-if="isMounted" id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -60,8 +60,30 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <div v-else class="text-center py-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
     <div class="three-points"></div>
 </template>
+
+<script setup>
+import { ref, onMounted, nextTick } from 'vue'
+
+const isMounted = ref(false)
+
+onMounted(async () => {
+    if (process.client) {
+        const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js')
+        isMounted.value = true
+        nextTick(() => {
+            new bootstrap.default.Carousel(document.getElementById('carouselExampleIndicators'))
+        })
+    }
+})
+</script>
+
 <style scoped>
 .shope {
     position: absolute;
@@ -97,7 +119,6 @@
 }
 
 .carousel-indicators {
-    /* border: solid red; */
     position: absolute !important;
     top: 685px;
     bottom: 0px;
@@ -105,7 +126,6 @@
 
 .carousel-indicators button {
     background-color: black !important;
-
 }
 
 .carousel-indicators .active {
@@ -158,37 +178,35 @@
     }
 
     .carousel-indicators {
-        /* border: solid red; */
         position: absolute !important;
         top: 180px;
         bottom: 0px;
     }
 }
+
 /* Small Mobiles */
 @media (min-width: 320px) and (max-width: 359px) {
-    /*  */
     .shope{
         top: 7px;
     }
      .carousel-indicators {
-        /* border: solid rgb(217, 255, 0); */
         top: 145px;
     }
 }
-/*  */
+
 @media (min-width: 360px) and (max-width: 374px) {
     .carousel-indicators {
-        /* border: solid rgb(133, 102, 212); */
         top: 145px;
     }
 }
+
 /* Medium Mobiles */
 @media (min-width: 375px) and (max-width: 390px) {
-.carousel-indicators{
-    /* border: green solid 1px; */
-    top: 170px;
+    .carousel-indicators{
+        top: 170px;
+    }
 }
-}
+
 /* Tablets */
 @media (min-width: 768px) and (max-width: 900px) {
     .shope {
@@ -227,7 +245,6 @@
     }
 
     .carousel-indicators {
-        /* border: solid red; */
         top: 370px;
     }
 }
@@ -235,7 +252,6 @@
 /* Mini Tablets */
 @media (min-width: 768px) and (max-width: 819px) {
     .carousel-indicators {
-        /* border: solid red; */
         top: 350px;
     }
 }
@@ -243,7 +259,6 @@
 /* Big Tablets */
 @media (min-width: 883px) and (max-width: 900px) {
     .carousel-indicators {
-        /* border: solid red !important; */
         top: 400px !important;
     }
 }

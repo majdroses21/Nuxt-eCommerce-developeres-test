@@ -6,7 +6,7 @@
           <h2 class="section-title mb-4 fw-bold text-dark">{{ title }}</h2>
           
           <!-- Carousel -->
-          <div id="productsCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div v-if="isMounted" id="productsCarousel" class="carousel slide" data-bs-ride="carousel">
             <!-- Carousel Inner -->
             <div class="carousel-inner">
               <div 
@@ -55,7 +55,7 @@
               data-bs-slide="next"
             >
               <div class="carousel-control-icon carousel-control-next-icon">
-                <i class="fas fa-arrow-right"></i><!-- TODO Change the arrow -->
+                <i class="fas fa-arrow-right"></i>
               </div>
               <span class="visually-hidden">Next</span>
             </button>
@@ -74,6 +74,12 @@
               ></button>
             </div>
           </div>
+          <!-- Loading placeholder -->
+          <div v-else class="text-center py-5">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,6 +87,10 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted } from 'vue'
+
+const isMounted = ref(false)
+
 const props = defineProps({
   title: {
     type: String,
@@ -92,16 +102,15 @@ const props = defineProps({
   },
   showBtns: {
     type: Boolean,
-    default:true,
+    default: true,
     required: false
   }
 })
 
 const emit = defineEmits(['product-add-to-cart', 'product-add-to-wishlist'])
 
-// تقسيم المنتجات إلى شرائح حسب حجم الشاشة
 const slides = computed(() => {
-  const productsPerSlide = 4 // للشاشات الكبيرة
+  const productsPerSlide = 4
   const slides = []
   
   for (let i = 0; i < props.products.length; i += productsPerSlide) {
@@ -120,10 +129,13 @@ const handleAddToWishlist = (product) => {
 }
 
 // Initialize carousel after component mount
-onMounted(() => {
+onMounted(async () => {
   if (process.client) {
-    // تأكد من تحميل Bootstrap JS
-    import('bootstrap/dist/js/bootstrap.bundle.min.js')
+    const bootstrap = await import('bootstrap/dist/js/bootstrap.bundle.min.js')
+    isMounted.value = true
+    nextTick(() => {
+      new bootstrap.default.Carousel(document.getElementById('productsCarousel'))
+    })
   }
 })
 </script>
@@ -149,9 +161,7 @@ onMounted(() => {
   transform: translateY(-50%);
   background: white;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  /* border-radius: 50%; */
-  border: none;
-  border: solid #000 2px ;
+  border: solid #000 2px;
   opacity: 0.8;
   transition: all 0.3s ease;
 }
@@ -192,11 +202,6 @@ onMounted(() => {
 }
 
 .carousel-indicators button {
-  /* This commented codes make the lins as circle, I want to un Commented this codes later */
-  /* width: 12px; */
-  /* height: 12px; */
-  /* border-radius: 50%; */
-  /* border: none; */
   background-color: #ccc;
   margin: 0 5px;
   opacity: 0.5;
