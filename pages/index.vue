@@ -1,6 +1,5 @@
 <template>
    <NuxtLayout name="website">
-      <!-- {{ useRuntimeConfig().public.API_URL }} -->
       <HomeHeroSection />
       <!-- Jewelry Ad -->
       <HomeAd :showButton="true" />
@@ -18,16 +17,6 @@
       <!-- Signup Ad  -->
        <HomeSignupAd/>
    </NuxtLayout>
-
-   <!-- <div class="container mt-5">
-            <div class="row">
-               <div class="col-md-3">
-                  <ProductCard image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400"
-                     title="منتج مستقل" :old-price="999" :new-price="799" currency="AED" @add-to-cart="handleAddToCart"
-                     @add-to-wishlist="handleAddToWishlist" />
-               </div>
-            </div>
-         </div> -->
 </template>
 <script setup>
 // Products images
@@ -111,7 +100,6 @@ const newArrivals = ref([
       id: 1,
       image: imgD,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -119,7 +107,6 @@ const newArrivals = ref([
       id: 2,
       image: imgF,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -127,7 +114,6 @@ const newArrivals = ref([
       id: 3,
       image: imgG,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -135,7 +121,6 @@ const newArrivals = ref([
       id: 4,
       image: imgH,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -143,7 +128,6 @@ const newArrivals = ref([
       id: 5,
       image: img1,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -151,7 +135,6 @@ const newArrivals = ref([
       id: 6,
       image: img2,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -159,7 +142,6 @@ const newArrivals = ref([
       id: 7,
       image: img3,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    },
@@ -167,7 +149,6 @@ const newArrivals = ref([
       id: 8,
       image: img4,
       title: 'Lorem ipsum dolor',
-      oldPrice: '899.00',
       newPrice: '800.00',
       currency: 'AED'
    }

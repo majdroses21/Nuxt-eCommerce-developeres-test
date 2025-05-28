@@ -32,18 +32,20 @@
       </div>
     </div>
     
-    <div class="product-info p-3 text-center">
-      <h5 class="product-title mb-2 text-dark fw-normal">{{ title }}</h5>
+    <NuxtLink to="/" class="product-info p-3 text-center">
+      <span class="product-title mb-2 text-dark fw-normal">{{ title }}</span>
       <div class="product-pricing d-flex align-items-center justify-content-center gap-2">
         <span class="current-price fw-bold text-dark fs-5">{{ currency }} </span>
-        <span class="old-price text-muted text-decoration-line-through">{{ oldPrice }}</span>
+        <span class="old-price text-muted text-decoration-line-through" v-if="oldPrice">{{ oldPrice }}</span>
         <span class="current-price fw-bold text-dark fs-5">{{ newPrice }}</span>
       </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 
 <script setup>
+import { NuxtLink } from '#components'
+
 const props = defineProps({
   image: {
     type: String,
@@ -90,7 +92,6 @@ const addToWishlist = () => {
 .product-card {
   background: white;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .product-card:hover {
@@ -113,6 +114,8 @@ const addToWishlist = () => {
   transform: scale(1.05);
 }
 .product-info{
+   cursor: pointer;
+   text-decoration: none;
   background-color: transparent !important;
   background-color: rgba(0, 0, 0, 0) !important;
 }
@@ -172,6 +175,7 @@ const addToWishlist = () => {
 }
 
 .product-title {
+  text-decoration: underline;
   font-size: 1rem;
   color: #333 !important;
   min-height: 48px;
