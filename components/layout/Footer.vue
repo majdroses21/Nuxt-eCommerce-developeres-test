@@ -17,10 +17,10 @@
         </div>
         <div class="col-md-3 mt-5">
           <ul class="list-unstyled">
-            <li><NuxtLink to="categories/electronics" class="li-links">Electronics</NuxtLink></li>
-            <li><NuxtLink to="categories/jewelery" class="li-links">Jewelry</NuxtLink></li>
-            <li><NuxtLink to="categories/men's clothing" class="li-links">Men Clothing</NuxtLink></li>
-            <li><NuxtLink to="categories/women's clothing" class="li-links">Women Clothing</NuxtLink></li>
+            <li><NuxtLink to="#" class="li-links">Electronics</NuxtLink></li>
+            <li><NuxtLink to="#" class="li-links">Jewelry</NuxtLink></li>
+            <li><NuxtLink to="#" class="li-links">Men Clothing</NuxtLink></li>
+            <li><NuxtLink to="#" class="li-links">Women Clothing</NuxtLink></li>
           </ul>
         </div>
         <div class="col-md-3 mt-5">

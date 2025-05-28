@@ -46,10 +46,10 @@
                     <div class="mobile-nav-content">
                         <!-- Mobile Navigation -->
                         <ul class="mobile-nav">
-                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="categories/electronics">ELECTRONICS</a></li>
-                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="categories/jewelery">JEWELRY</a></li>
-                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="categories/men's clothing">MEN CLOTHING</a></li>
-                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="categories/women's clothing">WOMEN CLOTHING</a></li>
+                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#">ELECTRONICS</a></li>
+                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#">JEWELRY</a></li>
+                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#">MEN CLOTHING</a></li>
+                            <li class="mobile-nav-item"><a class="mobile-nav-link" href="#">WOMEN CLOTHING</a></li>
                         </ul>
                         <!-- Mobile Search -->
                         <div class="mobile-search mt-3">
@@ -80,10 +80,10 @@
                     <!-- Navigation -->
                     <div class="col-md-6">
                         <ul class="nav justify-content-center">
-                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="/categories/electronics">ELECTRONICS</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="/categories/jewelery">JEWELRY</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="/categories/men's clothing">MEN CLOTHING</a></li>
-                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="/categories/women's clothing ">WOMEN CLOTHING</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="#">ELECTRONICS</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="#">JEWELRY</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="#">MEN CLOTHING</a></li>
+                            <li class="nav-item"><a class="nav-link text-dark font-bold" href="#">WOMEN CLOTHING</a></li>
                         </ul>
                     </div>
                     <!-- Search and Icons -->
