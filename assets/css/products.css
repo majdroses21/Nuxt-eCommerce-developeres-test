@@ -1,11 +1,11 @@
 /* Custom styles for products carousel and cards */
 /* TODO Use Dubai Fonts */
 /* إضافة الخطوط العربية */
-/* @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
-/* * {
+* {
   font-family: 'Cairo', sans-serif;
-} */
+}
 
 /* تحسين العرض العام */
 .special-offers {
