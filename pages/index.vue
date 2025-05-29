@@ -2,13 +2,13 @@
    <NuxtLayout name="website">
       <HomeHeroSection />
       <!-- Jewelry Ad -->
-      <HomeAd :showButton="true" />
+      <HomeAd :imageSource="JewelryAdImg" :showButton="true" />
       <!-- Special Offers -->
       <ProductCarousel title="SPECIAL OFFERS" :products="specialOffers" @product-add-to-cart="handleAddToCart"
          @product-add-to-wishlist="handleAddToWishlist" />
       <br>
       <!-- Boy Ad -->
-      <HomeAd :showButton="false" :imageSource="AdImg" />
+      <HomeAd :showButton="false" :imageSource="BoyAdImg" />
       <br>
       <!-- New Arrivals -->
       <ProductCarousel :showBtns="false" title="NEW ARRIVALS" :products="newArrivals"
@@ -28,7 +28,8 @@ import imgD from '../assets/Images/D.png';
 import imgF from '../assets/Images/F.png';
 import imgG from '../assets/Images/G.png';
 import imgH from '../assets/Images/H.png';
-import AdImg from '../assets/Images/Untitled-1.jpg';
+import BoyAdImg from '../assets/Images/Untitled-1.jpg';
+import JewelryAdImg from '../assets/Images/Jewelry.jpg';
 // Products Data
 const specialOffers = ref([
    {

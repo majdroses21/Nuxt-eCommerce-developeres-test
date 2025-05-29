@@ -130,11 +130,14 @@ const getCategoryDisplayName = (categorySlug) => {
 };
 
 // Helper function to get category image
+import BoyImg from '../assets/Images/Untitled-1.jpg';
+import electronicsImg from '../assets/Images/Header.jpg';
+import JewelryImg from '../assets/Images/Jewelry.jpg';
 const getCategoryImage = (categorySlug) => {
   const categoryImages = {
-    'electronics': '../_nuxt/assets/Images/Header.jpg',
-    'jewelery': '../_nuxt/assets/Images/Jewelry.jpg',
-    'men\'s clothing': '../_nuxt/assets/Images/Untitled-1.jpg',
+    'electronics': electronicsImg,
+    'jewelery': JewelryImg,
+    'men\'s clothing': BoyImg,
     'women\'s clothing': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3MbO0uGBXcolIGjA6Y0zDujIl5PF8T9-XAtfCo2gM6KW5cZXi4QpbfJ9tek7ykrYLsW8&usqp=CAU'
   };
   
