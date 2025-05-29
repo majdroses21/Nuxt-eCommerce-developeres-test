@@ -210,7 +210,6 @@ import { useCartStore } from '~/stores/cart';
 
 // Store
 const cartStore = useCartStore();
-
 // Reactive data
 const isLoading = ref(false);
 const promoCode = ref('');
@@ -246,12 +245,26 @@ const removeItem = async (id) => {
 };
 
 const clearCart = async () => {
-    if (!confirm('Are you sure you want to clear your cart?')) return;
-
     isLoading.value = true;
     try {
-        cartStore.clearCart();
-        showNotification('Cart cleared successfully', 'success');
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                cartStore.clearCart();
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Cart cleared successfully",
+                    icon: "success"
+                });
+            }
+        });
         await nextTick();
     } finally {
         isLoading.value = false;
@@ -261,7 +274,7 @@ const clearCart = async () => {
 const applyPromoCode = () => {
     // Add promo code logic here
     console.log('Applying promo code:', promoCode.value);
-    showNotification('Promo code applied!', 'success');
+    // showNotification('Promo code applied!', 'success');
     promoCode.value = '';
 };
 
@@ -270,18 +283,15 @@ const proceedToCheckout = () => {
     console.log('Proceeding to checkout with total:', total.value);
     // Navigate to checkout page
     // navigateTo('/checkout');
-    showNotification('Redirecting to checkout...', 'info');
+    // showNotification('Redirecting to checkout...', 'info');
 };
 
-// Notification helper
-const showNotification = (message, type = 'info') => {
-    console.log(`${type.toUpperCase()}: ${message}`);
-    // You can integrate with a toast library here
-};
+
 
 // Load cart items on mount
 onMounted(() => {
-    cartStore.getCartItems();
+    cartStore.initializeCart();
+
 });
 
 // SEO

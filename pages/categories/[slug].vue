@@ -84,7 +84,8 @@
 </template>
 
 <script setup>
-
+// Toast
+const { $showToast } = useNuxtApp()
 // Get route params
 const { slug } = useRoute().params;
 
@@ -146,31 +147,14 @@ const getCategoryImage = (categorySlug) => {
 
 // Event handlers
 const handleAddToCart = (product) => {
-  console.log('Adding to cart:', product);
-  cartStore.addToCart(product)
-  
-  // Show success message
-  showNotification('The product has been successfully added to the cart!', 'success');
+  cartStore.addToCart(product);
+  cartStore.initializeCart();
+  $showToast("Added To Cart", "success");
+ 
 };
 
 const handleAddToWishlist = (product) => {
   console.log('Adding to wishlist:', product);
-  // Add your wishlist logic here
-  // Example: useWishlistStore().addItem(product)
-  
-  // Show success message
-  showNotification('The product has been successfully added to the cart!', 'success');
-};
-
-// Notification helper function
-const showNotification = (message, type = 'info') => {
-  // You can use a toast library or custom notification system
-  console.log(`${type.toUpperCase()}: ${message}`);
-  
-  // Example with browser notification (optional)
-  if ('Notification' in window && Notification.permission === 'granted') {
-    new Notification(message);
-  }
 };
 
 // Page title for browser tab

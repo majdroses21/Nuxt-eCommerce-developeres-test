@@ -168,6 +168,11 @@
 <script setup>
 // Get route params
 const { id } = useRoute().params;
+// Toast
+const { $showToast } = useNuxtApp();
+// Store
+import { useCartStore } from '~/stores/cart';
+const cartStore = useCartStore();
 
 // Runtime config
 const apiUrl = useRuntimeConfig().public.API_URL;
@@ -223,13 +228,12 @@ const addToCart = async () => {
             product: product.value,
             quantity: quantity.value
         });
-
-        // Show success message (you can use a toast library)
-        showNotification('Product added to cart successfully!', 'success');
+        cartStore.addToCart(product.value);
+        cartStore.initializeCart();
+        $showToast("Added To Cart", "success");
 
     } catch (error) {
         console.error('Error adding to cart:', error);
-        showNotification('Failed to add product to cart', 'error');
     } finally {
         isAddingToCart.value = false;
     }
@@ -249,14 +253,8 @@ const addToWishlist = () => {
         ? 'Product added to wishlist!'
         : 'Product removed from wishlist!';
 
-    showNotification(message, 'info');
 };
 
-// Notification helper
-const showNotification = (message, type = 'info') => {
-    console.log(`${type.toUpperCase()}: ${message}`);
-    // You can integrate with a toast library here
-};
 
 // SEO and meta tags
 useSeoMeta({
