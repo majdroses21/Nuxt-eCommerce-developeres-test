@@ -94,13 +94,13 @@ const apiUrl = useRuntimeConfig().public.API_URL;
 // Reactive data
 const categoryProducts = ref([]);
 
+// Store
+import { useCartStore } from '~/stores/cart';
+const cartStore = useCartStore();
+
 // Fetch data with better error handling
 const { data, pending, error, refresh } = await useFetch(`${apiUrl}/products/category/${slug}`, {
   key: `category-${slug}`,
-//   transform: (data) => {
-//     // Transform data if needed
-//     return Array.isArray(data) ? data : [];
-//   },
   onResponse({ response }) {
     console.log('API Response:', response._data);
     categoryProducts.value = response._data
@@ -144,8 +144,7 @@ const getCategoryImage = (categorySlug) => {
 // Event handlers
 const handleAddToCart = (product) => {
   console.log('Adding to cart:', product);
-  // Add your cart logic here
-  // Example: useCartStore().addItem(product)
+  cartStore.addToCart(product)
   
   // Show success message
   showNotification('The product has been successfully added to the cart!', 'success');

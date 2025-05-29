@@ -154,11 +154,14 @@ const newArrivals = ref([
    }
 ])
 
+// Store
+import { useCartStore } from '~/stores/cart';
+const cartStore = useCartStore();
 // Add to cart
 const handleAddToCart = (product) => {
    console.log('تم إضافة المنتج للسلة:', product)
    //TODO Add to cart logic
-
+   cartStore.addToCart(product)
    // TODO Toast Success
    alert(`تم إضافة ${product.title} للسلة بنجاح!`)
 }
