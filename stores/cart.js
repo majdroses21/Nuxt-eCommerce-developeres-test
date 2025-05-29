@@ -6,8 +6,38 @@ export const useCartStore = defineStore("cart", {
         
     ], 
   }),
+  
+  getters: {
+    cartItemsCount: (state) => state.cartItems.length,
+    cartTotal: (state) => {
+      return state.cartItems.reduce((total, item) => {
+        const price = typeof item.price === "string" ? parseFloat(item.price.replace("$", "")) : item.price;
+        return total + price * item.quantity; 
+      }, 0);
+    }
+  },
+  
   actions: {
+    // تهيئة السلة من localStorage عند بدء التطبيق
+    initializeCart() {
+      if (process.client && !this.isInitialized) {
+        const savedItems = localStorage.getItem("cart-items");
+        if (savedItems) {
+          try {
+            this.cartItems = JSON.parse(savedItems);
+          } catch (error) {
+            console.error("Error parsing cart items from localStorage:", error);
+            this.cartItems = [];
+          }
+        }
+        this.isInitialized = true;
+      }
+    },
+
     addToCart(product) {
+      // تأكد من تهيئة السلة أولاً
+      this.initializeCart();
+      
       const existingProduct = this.cartItems.find(item => item.id === product.id);
     
       if (existingProduct) {
@@ -19,11 +49,14 @@ export const useCartStore = defineStore("cart", {
       this.saveCartToLocalStorage();
     },
     
+    // إزالة هذه الدالة واستخدام initializeCart بدلاً منها
     getCartItems() {
-      const savedItems = localStorage.getItem("cart-items");
-      if (savedItems) {
-        this.cartItems = JSON.parse(savedItems);
-      }
+      this.initializeCart();
+      return this.cartItems;
+    },
+
+    getCartTotal() {
+      return this.cartTotal; // استخدم getter بدلاً من حساب مباشر
     },
 
     removeFromCart(productId) {
@@ -38,20 +71,20 @@ export const useCartStore = defineStore("cart", {
         this.saveCartToLocalStorage(); 
       }
     },
+    
     clearCart() {
       this.cartItems = [];
       this.saveCartToLocalStorage(); 
     },
-   
-    getCartTotal() {
-      return this.cartItems.reduce((total, item) => {
-        const price = typeof item.price === "string" ? parseFloat(item.price.replace("$", "")) : item.price;
-        return total + price * item.quantity; 
-      }, 0);
-    },
 
     saveCartToLocalStorage() {
-      localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
+      if (process.client) {
+        try {
+          localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
+        } catch (error) {
+          console.error("Error saving cart to localStorage:", error);
+        }
+      }
     },
   },
 });

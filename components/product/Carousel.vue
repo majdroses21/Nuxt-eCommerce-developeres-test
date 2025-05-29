@@ -22,6 +22,7 @@
                     class="col-lg-3 col-md-6 col-12"
                   >
                     <ProductCard
+                      :id="product.id"
                       :image="product.image"
                       :title="product.title"
                       :old-price="product.oldPrice"
@@ -95,6 +96,9 @@ const props = defineProps({
   title: {
     type: String,
     default: 'SPECIAL OFFERS'
+  },
+  id: {
+    type: Number
   },
   products: {
     type: Array,
