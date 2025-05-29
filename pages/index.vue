@@ -8,7 +8,7 @@
          @product-add-to-wishlist="handleAddToWishlist" />
       <br>
       <!-- Boy Ad -->
-      <HomeAd :showButton="false" imageSource="_nuxt/assets/Images/Untitled-1.jpg" />
+      <HomeAd :showButton="false" :imageSource="AdImg" />
       <br>
       <!-- New Arrivals -->
       <ProductCarousel :showBtns="false" title="NEW ARRIVALS" :products="newArrivals"
@@ -28,6 +28,7 @@ import imgD from '../assets/Images/D.png';
 import imgF from '../assets/Images/F.png';
 import imgG from '../assets/Images/G.png';
 import imgH from '../assets/Images/H.png';
+import AdImg from '../assets/Images/Untitled-1.jpg';
 // Products Data
 const specialOffers = ref([
    {
