@@ -172,9 +172,7 @@ const handleAddToCart = (product) => {
 
 // Add to Fav
 const handleAddToWishlist = (product) => {
-   console.log('تم إضافة المنتج للمفضلات:', product)
-
-   alert(`تم إضافة ${product.title} للمفضلات بنجاح!`)
+   $showToast("You must be a logged in user", "error");
 }
 //SEO
 import appConfig from '~/app.config';

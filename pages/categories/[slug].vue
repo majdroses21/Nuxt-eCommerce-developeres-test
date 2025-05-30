@@ -154,7 +154,7 @@ const handleAddToCart = (product) => {
 };
 
 const handleAddToWishlist = (product) => {
-  console.log('Adding to wishlist:', product);
+  $showToast("You must be a logged in user", "error");
 };
 
 // SEO
