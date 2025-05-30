@@ -10,9 +10,9 @@
         <div class="col-md-3 mt-5">
           <ul class="list-unstyled">
             <li><NuxtLink to="#" class="li-links">Home</NuxtLink></li>
-            <li><NuxtLink to="#" class="li-links">About us</NuxtLink></li>
+            <li><NuxtLink to="/about" class="li-links">About us</NuxtLink></li>
             <li><NuxtLink to="#" class="li-links">Media center</NuxtLink></li>
-            <li><NuxtLink to="#" class="li-links">Contact Us</NuxtLink></li>
+            <li><NuxtLink to="contact" class="li-links">Contact Us</NuxtLink></li>
           </ul>
         </div>
         <div class="col-md-3 mt-5">

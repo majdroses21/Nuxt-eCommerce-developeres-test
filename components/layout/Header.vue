@@ -8,10 +8,10 @@
                 <ul class="nav ">
                     <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active text-secondary"
                             aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-secondary">About Us</a></li>
+                    <li class="nav-item"><NuxtLink to="/about" class="nav-link link-dark px-2 text-secondary">About Us</NuxtLink></li>
                     <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-secondary">Media Center</a>
                     </li>
-                    <li class="nav-item"><a href="#" class="nav-link link-dark px-2 text-secondary">Contact Us</a></li>
+                    <li class="nav-item"><NuxtLink to="/contact" class="nav-link link-dark px-2 text-secondary">Contact Us</NuxtLink></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggleX text-black" href="#" id="navbarScrollingDropdown"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
