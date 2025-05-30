@@ -8,7 +8,9 @@
          @product-add-to-wishlist="handleAddToWishlist" />
       <br>
       <!-- Boy Ad -->
-      <HomeAd :showButton="false" :imageSource="BoyAdImg" />
+       <NuxtLink to="/categories/men's clothing">
+          <HomeAd :showButton="false" :imageSource="BoyAdImg" />
+       </NuxtLink>
       <br>
       <!-- New Arrivals -->
       <ProductCarousel :showBtns="false" title="NEW ARRIVALS" :products="newArrivals"

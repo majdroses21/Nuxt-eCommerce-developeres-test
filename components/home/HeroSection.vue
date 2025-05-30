@@ -13,12 +13,12 @@
                 <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
                 <div class="shope">
                     <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION WITH UP TO 70% OFF</p>
+                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
                     <button>
-                        <div class="button-image-shope">
+                        <NuxtLink to="categories/electronics" class="button-image-shope">
                             <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOPE NOW</span>
-                        </div>
+                            <span class="font-bold">SHOP NOW</span>
+                        </NuxtLink>
                     </button>
                 </div>
             </div>
@@ -26,12 +26,12 @@
                 <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
                 <div class="shope">
                     <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION WITH UP TO 70% OFF</p>
+                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
                     <button>
-                        <div class="button-image-shope">
+                        <NuxtLink to="categories/electronics" class="button-image-shope">
                             <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOPE NOW</span>
-                        </div>
+                            <span class="font-bold">SHOP NOW</span>
+                        </NuxtLink>
                     </button>
                 </div>
             </div>
@@ -39,12 +39,12 @@
                 <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
                 <div class="shope">
                     <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION WITH UP TO 70% OFF</p>
+                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
                     <button>
-                        <div class="button-image-shope">
+                        <NuxtLink to="categories/electronics" class="button-image-shope">
                             <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOPE NOW</span>
-                        </div>
+                            <span class="font-bold">SHOP NOW</span>
+                        </NuxtLink>
                     </button>
                 </div>
             </div>
@@ -67,26 +67,59 @@
     position: absolute;
     top: 250px;
     left: 40px;
+    z-index: 10;
 }
-.shope > p{
+
+.shope h1 {
+    font-size: 3rem;
+    font-weight: 600;
     color: #000;
-    background-color: #ffffff49;
+    margin-bottom: 25px;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
+
+.shope>p {
+    color: #000000eb;
+    background-color: #ffffff49;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 .shope>button {
     border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.shope>button:hover {
+    transform: translateY(-2px);
 }
 
 .button-image-shope {
     position: relative;
+    display: inline-block;
 }
 
 .button-image-shope>span {
     position: absolute;
-    top: 40px;
-    left: 0px;
-    right: 50px;
-    bottom: 0;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
     color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
 }
 
 /* Carousel Settings */
@@ -123,6 +156,14 @@
         top: 50px;
         left: 10px;
         width: calc(100% - 20px);
+    }
+
+    .button-image-shope>span {
+        /* border: red solid; */
+        top: 50% !important;
+        left: 35% !important;
+        font-size: 1rem ;
+        letter-spacing: 2px;
     }
 
     .shope h1 {
@@ -164,17 +205,21 @@
         bottom: 0px;
     }
 }
+
 /* Small Mobiles */
 @media (min-width: 320px) and (max-width: 359px) {
+
     /*  */
-    .shope{
+    .shope {
         top: 7px;
     }
-     .carousel-indicators {
+
+    .carousel-indicators {
         /* border: solid rgb(217, 255, 0); */
         top: 145px;
     }
 }
+
 /*  */
 @media (min-width: 360px) and (max-width: 374px) {
     .carousel-indicators {
@@ -182,13 +227,15 @@
         top: 145px;
     }
 }
+
 /* Medium Mobiles */
 @media (min-width: 375px) and (max-width: 390px) {
-.carousel-indicators{
-    /* border: green solid 1px; */
-    top: 170px;
+    .carousel-indicators {
+        /* border: green solid 1px; */
+        top: 170px;
+    }
 }
-}
+
 /* Tablets */
 @media (min-width: 768px) and (max-width: 900px) {
     .shope {

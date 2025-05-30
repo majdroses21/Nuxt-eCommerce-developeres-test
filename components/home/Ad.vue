@@ -1,14 +1,14 @@
 <template>
     <div class="ad-container position-relative" :style="{ height: customHeight }">
         <img :src="imageSource" alt="ad">
-        <div class="shop-button" v-if="showButton">
+        <NuxtLink to="/categories/jewelery" class="shop-button" v-if="showButton">
             <button>
                 <div class="button-content">
                     <img src="../../assets/Images/Icons/Bottun White.png" alt="">
                     <span class="font-bold">SEE MORE</span>
                 </div>
             </button>
-        </div>
+        </NuxtLink>
     </div>
 </template>
 
@@ -54,12 +54,15 @@ export default {
 /* Button Styles */
 .shop-button {
     position: absolute;
-    bottom: 10%;
+    bottom: 0%;
     left: 5%;
     transform: translateY(-50%);
     z-index: 10;
+    transition: transform 0.3s ease;
 }
-
+.shop-button:hover{
+    transform: translateY(-1px);
+}
 .shop-button button {
     background: transparent;
     border: none;
@@ -75,10 +78,14 @@ export default {
 .button-content>span {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 36%;
     transform: translate(-50%, -50%);
     color: #000;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     white-space: nowrap;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Adjustments */
@@ -91,9 +98,15 @@ export default {
     }
 
     .button-content>span {
-        left: 40%;
-        font-size: x-small;
+        position: absolute;
+        top: 50%;
+        left: 36%;
+        transform: translate(-50%, -50%);
+        color: #000;
+        font-size: 0.5rem !important;
+        letter-spacing: 2px;
     }
+
 }
 
 /* Tablets */
