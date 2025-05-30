@@ -76,6 +76,7 @@ const emit = defineEmits(['add-to-cart', 'add-to-wishlist'])
 
 const addToCart = () => {
   emit('add-to-cart', {
+    id: props.id,
     title: props.title,
     price: props.newPrice,
     image: props.image
@@ -84,6 +85,7 @@ const addToCart = () => {
 
 const addToWishlist = () => {
   emit('add-to-wishlist', {
+    id: props.id,
     title: props.title,
     price: props.newPrice,
     image: props.image

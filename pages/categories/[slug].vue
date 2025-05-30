@@ -3,12 +3,8 @@
     <!-- Header Section with Category Image -->
     <div class="category-header position-relative mb-5">
       <div class="header-image-container">
-        <img 
-          :src="getCategoryImage(slug)" 
-          :alt="getCategoryDisplayName(slug)"
-          class="img-fluid w-100"
-          style="height: 300px; object-fit: cover;"
-        >
+        <img :src="getCategoryImage(slug)" :alt="getCategoryDisplayName(slug)" class="img-fluid w-100"
+          style="height: 300px; object-fit: cover;">
         <div class="header-overlay d-flex align-items-center justify-content-center">
           <div class="text-center text-white">
             <h1 class="display-4 fw-bold mb-2">{{ getCategoryDisplayName(slug) }}</h1>
@@ -40,28 +36,17 @@
         <div class="row mb-4">
           <div class="col-12">
             <h3 class="h5 text-muted">
-             {{ categoryProducts.length }}  products found in {{ getCategoryDisplayName(slug) }}
+              {{ categoryProducts.length }} products found in {{ getCategoryDisplayName(slug) }}
             </h3>
           </div>
         </div>
 
         <!-- Products Loop -->
         <div class="row g-4">
-          <div 
-            v-for="product in categoryProducts" 
-            :key="product.id"
-            class="col-lg-3 col-md-4 col-sm-6"
-          >
-            <ProductCard 
-              :image="product.image"
-              :title="product.title"
-              :id="product.id"
-              :new-price="product.price"
-              :description="product.description"
-              :rating="product.rating"
-              @add-to-cart="handleAddToCart(product)"
-              @add-to-wishlist="handleAddToWishlist(product)"
-            />
+          <div v-for="product in categoryProducts" :key="product.id" class="col-lg-3 col-md-4 col-sm-6">
+            <ProductCard :image="product.image" :title="product.title" :id="product.id" :new-price="product.price"
+              :description="product.description" :rating="product.rating" @add-to-cart="handleAddToCart(product)"
+              @add-to-wishlist="handleAddToWishlist(product)" />
           </div>
         </div>
       </div>
@@ -126,7 +111,7 @@ const getCategoryDisplayName = (categorySlug) => {
     'men\'s clothing': "Men's Clothing",
     'women\'s clothing': "Women's Clothing"
   };
-  
+
   return categoryNames[categorySlug] || categorySlug;
 };
 
@@ -141,20 +126,18 @@ const getCategoryImage = (categorySlug) => {
     'men\'s clothing': BoyImg,
     'women\'s clothing': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3MbO0uGBXcolIGjA6Y0zDujIl5PF8T9-XAtfCo2gM6KW5cZXi4QpbfJ9tek7ykrYLsW8&usqp=CAU'
   };
-  
+
   return categoryImages[categorySlug] || 'https://img.freepik.com/free-photo/arrangement-black-friday-shopping-carts-with-copy-space_23-2148667047.jpg?semt=ais_hybrid&w=740';
 };
 
 // Event handlers
+const { handelAddToState } = useStateHandler();
 const handleAddToCart = (product) => {
-  cartStore.addToCart(product);
-  cartStore.initializeCart();
-  $showToast("Added To Cart", "success");
- 
+  handelAddToState(product, 'cart');
 };
 
 const handleAddToWishlist = (product) => {
-  $showToast("You must be a logged in user", "error");
+  handelAddToState(product, 'wishlist');
 };
 
 // SEO
@@ -180,12 +163,10 @@ useHead({
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
+  background: linear-gradient(45deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.7) 100%);
 }
 
 .header-overlay h1 {
@@ -207,7 +188,7 @@ useHead({
   .header-overlay h1 {
     font-size: 2rem !important;
   }
-  
+
   .header-overlay p {
     font-size: 1rem !important;
   }

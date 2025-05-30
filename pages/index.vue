@@ -21,8 +21,6 @@
    </NuxtLayout>
 </template>
 <script setup>
-// Toast
-const { $showToast } = useNuxtApp()
 // Products images
 import img1 from '../assets/Images/1.jpg';
 import img2 from '../assets/Images/2.jpg';
@@ -162,17 +160,16 @@ const newArrivals = ref([
 
 // Store
 import { useCartStore } from '~/stores/cart';
+const { handelAddToState } = useStateHandler();
 const cartStore = useCartStore();
 // Add to cart
 const handleAddToCart = (product) => {
-   cartStore.initializeCart();
-   cartStore.addToCart(product)
-   $showToast("Added To Cart", "success");
+    handelAddToState(product, 'cart');
 }
 
 // Add to Fav
 const handleAddToWishlist = (product) => {
-   $showToast("You must be a logged in user", "error");
+    handelAddToState(product, 'wishlist');
 }
 //SEO
 import appConfig from '~/app.config';

@@ -216,6 +216,7 @@ const decreaseQuantity = () => {
 };
 
 // Add to cart function
+const { handelAddToState } = useStateHandler();
 const addToCart = async () => {
     isAddingToCart.value = true;
 
@@ -228,9 +229,7 @@ const addToCart = async () => {
             product: product.value,
             quantity: quantity.value
         });
-        cartStore.addToCart(product.value);
-        cartStore.initializeCart();
-        $showToast("Added To Cart", "success");
+        handelAddToState(product, 'cart');
 
     } catch (error) {
         console.error('Error adding to cart:', error);
@@ -241,17 +240,8 @@ const addToCart = async () => {
 
 // Add to wishlist function
 const addToWishlist = () => {
-    isInWishlist.value = !isInWishlist.value;
-
-    // Add your wishlist logic here
-    console.log('Wishlist action:', {
-        product: product.value,
-        action: isInWishlist.value ? 'added' : 'removed'
-    });
-
-    const message = isInWishlist.value
-        ? 'Product added to wishlist!'
-        : 'Product removed from wishlist!';
+    handelAddToState(product, 'wishlist');
+    // isInWishlist.value = !isInWishlist.value;
 
 };
 
