@@ -157,9 +157,10 @@ const handleAddToWishlist = (product) => {
   console.log('Adding to wishlist:', product);
 };
 
-// Page title for browser tab
+// SEO
+import appConfig from '~/app.config';
 useHead({
-  title: `${getCategoryDisplayName(slug)}`
+  title: `${getCategoryDisplayName(slug)} - ${appConfig.siteName}`
 });
 </script>
 

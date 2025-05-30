@@ -295,8 +295,9 @@ onMounted(() => {
 });
 
 // SEO
+import appConfig from '~/app.config';
 useSeoMeta({
-    title: 'Shopping Cart - Developer Test Store',
+    title: 'Shopping Cart -' + appConfig.siteName,
     description: 'Review and manage items in your shopping cart',
     ogTitle: 'Shopping Cart',
     ogDescription: 'Review and manage items in your shopping cart'

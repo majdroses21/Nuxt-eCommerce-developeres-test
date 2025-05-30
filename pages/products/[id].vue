@@ -257,8 +257,9 @@ const addToWishlist = () => {
 
 
 // SEO and meta tags
+import appConfig from '~/app.config';
 useSeoMeta({
-    title: () => product.value ? `${product.value.title} - Developer Test Store` : 'Product Details',
+    title: () => product.value ? `${product.value.title} - ${appConfig.siteName}` : 'Product Details',
     description: () => product.value ? product.value.description : 'Product details page',
     ogTitle: () => product.value ? product.value.title : 'Product Details',
     ogDescription: () => product.value ? product.value.description : 'Product details page',
@@ -292,14 +293,6 @@ useHead({
         }
     ]
 });
-useHead({
-    link: [
-        {
-            rel: 'stylesheet',
-            href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css'
-        }
-    ]
-})
 </script>
 
 <style scoped>

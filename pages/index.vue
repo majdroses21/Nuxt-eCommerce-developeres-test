@@ -176,5 +176,21 @@ const handleAddToWishlist = (product) => {
 
    alert(`تم إضافة ${product.title} للمفضلات بنجاح!`)
 }
+//SEO
+import appConfig from '~/app.config';
+const { setHomeSEO } = useSEO()
+
+setHomeSEO()
+
+
+useHead({
+  title: appConfig.siteName + '-' + ' Home',
+  meta: [
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'format-detection', content: 'telephone=no' },
+    { hid: 'robots', name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' }
+  ],
+  
+})
 </script>
 <style scoped src="../assets/css/products.css"></style>
