@@ -1,49 +1,30 @@
 <template>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            <button 
+                v-for="(item, index) in sliderItems" 
+                :key="index"
+                type="button" 
+                data-bs-target="#carouselExampleIndicators" 
+                :data-bs-slide-to="index" 
+                :class="{ 'active': index === 0 }"
+                :aria-current="index === 0 ? 'true' : 'false'" 
+                :aria-label="`Slide ${index + 1}`">
+            </button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active position-relative">
-                <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
+            <div 
+                v-for="(item, index) in sliderItems" 
+                :key="index"
+                :class="['carousel-item', 'position-relative', { 'active': index === 0 }]">
+                <img :src="item.image" class="d-block w-100" :alt="item.alt || 'carousel image'">
                 <div class="shope">
-                    <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
+                    <h1>{{ item.title }}</h1>
+                    <p v-html="item.description"></p>
                     <button>
-                        <NuxtLink to="categories/electronics" class="button-image-shope">
-                            <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOP NOW</span>
-                        </NuxtLink>
-                    </button>
-                </div>
-            </div>
-            <div class="carousel-item position-relative">
-                <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
-                <div class="shope">
-                    <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
-                    <button>
-                        <NuxtLink to="categories/electronics" class="button-image-shope">
-                            <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOP NOW</span>
-                        </NuxtLink>
-                    </button>
-                </div>
-            </div>
-            <div class="carousel-item position-relative">
-                <img src="../../assets/Images/Header.jpg" class="d-block w-100" alt="carousel image">
-                <div class="shope">
-                    <h1>SALE</h1>
-                    <p>ACCESS A LIMITED SECTION <br> WITH UP TO 70% OFF</p>
-                    <button>
-                        <NuxtLink to="categories/electronics" class="button-image-shope">
-                            <img src="../../assets/Images/Icons/Bottun.png" alt="">
-                            <span class="font-bold">SHOP NOW</span>
+                        <NuxtLink :to="item.link" class="button-image-shope">
+                            <img :src="item.buttonImage" alt="">
+                            <span class="font-bold">{{ item.buttonText }}</span>
                         </NuxtLink>
                     </button>
                 </div>
@@ -62,6 +43,14 @@
     </div>
     <div class="three-points"></div>
 </template>
+
+<script setup>
+import { useSliderStore } from '~/stores/sliderData' //
+
+const sliderStore = useSliderStore()
+const { sliderItems } = storeToRefs(sliderStore)
+</script>
+
 <style scoped>
 .shope {
     position: absolute;
