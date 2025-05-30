@@ -51,16 +51,16 @@ const props = defineProps({
     required: true
   },
   title: {
-    type: Number,
+    type: String,
     required: true
   },
   id: {
-    type: String,
+    type: Number,
     required: true
   },
   oldPrice: {
     type: [String, Number],
-    required: true
+    required: false
   },
   newPrice: {
     type: [String, Number],
