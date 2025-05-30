@@ -54,7 +54,7 @@
         </div>
       </div>
        <hr style="height: 1.5px; border:1px solid #fff; background-color: #fff;">
-      <p class="mt-4 text-center" style="margin-bottom: -30px;">© Developer Test 2024. All Rights Reserved</p>
+      <p class="mt-4 text-center" style="margin-bottom: -30px;">© Developer Test {{ new Date().getFullYear() }}. All Rights Reserved</p>
     </div>
   </footer>
 </template>
